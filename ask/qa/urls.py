@@ -1,11 +1,15 @@
-from django.urls import path
+from django.conf.urls import url
+
 from . import views
 
 urlpatterns = [
-    path(r'^login/', views.test, name='login'),
-    path(r'^signup/', views.test, name='signup'),
-    path(r'^question/(?P<id>\d+/$)', views.test, name='question'),
-    path(r'^ask/', views.test, name='ask'),
-    path(r'^popular/', views.test, name='popular'),
-    path(r'^new/', views.test, name='new'),
+    url(r'^$', views.test),
+    url(r'^popular/.*$', views.test, name='popular'),
+    url(r'^ask/.*$', views.test, name='ask'),
+    url(r'^answer/.*$', views.test, name='answer'),
+    url(r'^signup/.*$', views.test, name='signup'),
+    url(r'^login/.*$', views.test, name='login'),
+    url(r'^logout/.*$', views.test, name='logout'),
+    url(r'^new/.*$', views.test),
+    url(r'^question/(?P<question_id>[0-9]+)/$', views.test, name='question'),
 ]
